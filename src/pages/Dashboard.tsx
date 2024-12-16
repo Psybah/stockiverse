@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, LineChart } from "@/components/ui/chart";
+import { BarChart, LineChart } from "@/components/ui/charts";
 
 const salesData = [
   { name: "Jan", total: 1200 },
