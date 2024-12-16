@@ -33,37 +33,40 @@ export function LineChart({
 }: ChartProps) {
   return (
     <ChartContainer className={className} config={{}}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis
-        dataKey={index}
-        tick={{ fill: "hsl(var(--muted-foreground))" }}
-        tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
-      />
-      <YAxis
-        tick={{ fill: "hsl(var(--muted-foreground))" }}
-        tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
-        tickFormatter={valueFormatter}
-      />
-      <ChartTooltip
-        content={({ active, payload, label }) => (
-          <ChartTooltipContent
-            active={active}
-            payload={payload}
-            label={label}
-            valueFormatter={valueFormatter}
+      <ResponsiveContainer>
+        <Line data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey={index}
+            tick={{ fill: "hsl(var(--muted-foreground))" }}
+            tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
           />
-        )}
-      />
-      {categories.map((category, i) => (
-        <Line
-          key={category}
-          type="monotone"
-          dataKey={category}
-          stroke={colors?.[i] || `hsl(var(--primary))`}
-          strokeWidth={2}
-          dot={false}
-        />
-      ))}
+          <YAxis
+            tick={{ fill: "hsl(var(--muted-foreground))" }}
+            tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
+            tickFormatter={valueFormatter}
+          />
+          <ChartTooltip
+            content={({ active, payload, label }) => (
+              <ChartTooltipContent
+                active={active}
+                payload={payload}
+                label={label}
+              />
+            )}
+          />
+          {categories.map((category, i) => (
+            <Line
+              key={category}
+              type="monotone"
+              dataKey={category}
+              stroke={colors?.[i] || `hsl(var(--primary))`}
+              strokeWidth={2}
+              dot={false}
+            />
+          ))}
+        </Line>
+      </ResponsiveContainer>
     </ChartContainer>
   )
 }
@@ -78,34 +81,37 @@ export function BarChart({
 }: ChartProps) {
   return (
     <ChartContainer className={className} config={{}}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis
-        dataKey={index}
-        tick={{ fill: "hsl(var(--muted-foreground))" }}
-        tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
-      />
-      <YAxis
-        tick={{ fill: "hsl(var(--muted-foreground))" }}
-        tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
-        tickFormatter={valueFormatter}
-      />
-      <ChartTooltip
-        content={({ active, payload, label }) => (
-          <ChartTooltipContent
-            active={active}
-            payload={payload}
-            label={label}
-            valueFormatter={valueFormatter}
+      <ResponsiveContainer>
+        <Bar data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey={index}
+            tick={{ fill: "hsl(var(--muted-foreground))" }}
+            tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
           />
-        )}
-      />
-      {categories.map((category, i) => (
-        <Bar
-          key={category}
-          dataKey={category}
-          fill={colors?.[i] || `hsl(var(--primary))`}
-        />
-      ))}
+          <YAxis
+            tick={{ fill: "hsl(var(--muted-foreground))" }}
+            tickLine={{ stroke: "hsl(var(--muted-foreground))" }}
+            tickFormatter={valueFormatter}
+          />
+          <ChartTooltip
+            content={({ active, payload, label }) => (
+              <ChartTooltipContent
+                active={active}
+                payload={payload}
+                label={label}
+              />
+            )}
+          />
+          {categories.map((category, i) => (
+            <Bar
+              key={category}
+              dataKey={category}
+              fill={colors?.[i] || `hsl(var(--primary))`}
+            />
+          ))}
+        </Bar>
+      </ResponsiveContainer>
     </ChartContainer>
   )
 }
