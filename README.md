@@ -4,7 +4,6 @@
 
 This project is a feature-rich inventory and sales management system designed with a focus on user-friendly functionality, responsiveness, and localization for the Nigerian market. It allows administrators to manage products, sales, and users efficiently while ensuring all interactions are secure and intuitive. The platform is styled with Tailwind CSS, ensuring a modern and responsive design.
 
----
 
 ## Features
 
@@ -31,8 +30,6 @@ This project is a feature-rich inventory and sales management system designed wi
 - **Form Handling**: React-hook-form is used for managing forms, ensuring proper context and validation.
 - **Refactored Components**: Code is modularized into smaller, maintainable components for better readability and performance.
 
----
-
 ## Technical Details
 
 ### Technologies Used
@@ -49,8 +46,6 @@ This project is a feature-rich inventory and sales management system designed wi
 - **ShadCN/UI**: Provides custom wrappers like the Form component for enhanced usability.
 - **Barcode Integration**: A custom barcode scanner library is integrated.
 
----
-
 ## Installation and Setup
 
 1. Clone the repository.
@@ -63,8 +58,6 @@ This project is a feature-rich inventory and sales management system designed wi
    npm start
    ```
 4. Access the application in your browser at `http://localhost:3000`.
-
----
 
 ## Usage
 
@@ -81,8 +74,6 @@ This project is a feature-rich inventory and sales management system designed wi
 
 - Ensure that the application is usable across devices, from desktops to mobile phones.
 
----
-
 ## Future Enhancements
 
 - Securely store user credentials using hashing mechanisms.
@@ -90,13 +81,10 @@ This project is a feature-rich inventory and sales management system designed wi
 - Expand barcode scanning functionality to support multiple formats.
 - Add analytics and reporting features for better business insights.
 
----
 
 ## Contribution
 
 Feel free to contribute to this project by submitting pull requests or reporting issues. Ensure that your changes are well-documented and tested.
-
----
 
 ## License
 
