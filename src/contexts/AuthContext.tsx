@@ -36,6 +36,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         role: "admin",
       });
       toast.success("Logged in successfully!");
+    } else if (email === "0biken@gmail.com" && password === "iamafool") {
+      setUser({
+        id: "4",
+        name: "Obinna Kenneth",
+        role: "admin",
+      });
+      toast.success("Logged in successfully!");
     } else if (email === "manager@example.com" && password === "manager") {
       setUser({
         id: "2",

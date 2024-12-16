@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -22,10 +22,19 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <Card className="w-[400px]">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-[400px]">
         <CardHeader>
           <CardTitle>Login</CardTitle>
+          <CardDescription>
+            Test credentials:
+            <ul className="mt-2 space-y-1 text-sm">
+              <li>Admin: admin@example.com / admin</li>
+              <li>Admin 2: 0biken@gmail.com / iamafool</li>
+              <li>Manager: manager@example.com / manager</li>
+              <li>Cashier: cashier@example.com / cashier</li>
+            </ul>
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
