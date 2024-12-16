@@ -1,7 +1,9 @@
 import * as React from "react"
 import {
   Line,
+  LineChart as RechartsLineChart,
   Bar,
+  BarChart as RechartsBarChart,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -34,7 +36,7 @@ export function LineChart({
   return (
     <ChartContainer className={className} config={{}}>
       <ResponsiveContainer>
-        <Line data={data}>
+        <RechartsLineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey={index}
@@ -65,7 +67,7 @@ export function LineChart({
               dot={false}
             />
           ))}
-        </Line>
+        </RechartsLineChart>
       </ResponsiveContainer>
     </ChartContainer>
   )
@@ -82,7 +84,7 @@ export function BarChart({
   return (
     <ChartContainer className={className} config={{}}>
       <ResponsiveContainer>
-        <Bar data={data}>
+        <RechartsBarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey={index}
@@ -110,7 +112,7 @@ export function BarChart({
               fill={colors?.[i] || `hsl(var(--primary))`}
             />
           ))}
-        </Bar>
+        </RechartsBarChart>
       </ResponsiveContainer>
     </ChartContainer>
   )
