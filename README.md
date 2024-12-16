@@ -1,69 +1,104 @@
-# Welcome to your Lovable project
+# Project README
 
-## Project info
+## Overview
 
-**URL**: https://lovable.dev/projects/e4eed567-813b-466a-825f-c7df4817526c
+This project is a feature-rich inventory and sales management system designed with a focus on user-friendly functionality, responsiveness, and localization for the Nigerian market. It allows administrators to manage products, sales, and users efficiently while ensuring all interactions are secure and intuitive. The platform is styled with Tailwind CSS, ensuring a modern and responsive design.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+### Inventory Management
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e4eed567-813b-466a-825f-c7df4817526c) and start prompting.
+- **Edit Products**: Admins can edit product details via a dialog form.
+- **Add Sales**: Sales can be recorded, with support for barcode scanning.
+- **Barcode Scanning**: Integrated barcode functionality works seamlessly on the Inventory and Sales pages.
 
-Changes made via Lovable will be committed automatically to this repo.
+### User Management
 
-**Use your preferred IDE**
+- **Add Admins**: Admins can create other admin accounts.
+- **Remove Users**: Admins can remove users when needed.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Authentication
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Admin Credentials**: Test credentials are provided for demo purposes.
+  - **Email**: `0biken@gmail.com`
+  - **Password**: `iamafool`
+- **Login Page Enhancements**: The login page is styled with proper padding, max-width constraints, and mobile responsiveness.
 
-Follow these steps:
+### Design and Implementation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Form Handling**: React-hook-form is used for managing forms, ensuring proper context and validation.
+- **Refactored Components**: Code is modularized into smaller, maintainable components for better readability and performance.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Technical Details
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Technologies Used
 
-**Edit a file directly in GitHub**
+- **Frontend Framework**: React.js
+- **Styling**: Tailwind CSS
+- **State Management**: Context API
+- **Form Handling**: React-hook-form
+- **Responsive Design**: Mobile-first approach with CSS media queries
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Key Libraries
 
-**Use GitHub Codespaces**
+- **React Hook Form**: For form state management and validation.
+- **ShadCN/UI**: Provides custom wrappers like the Form component for enhanced usability.
+- **Barcode Integration**: A custom barcode scanner library is integrated.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## Installation and Setup
 
-This project is built with .
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+4. Access the application in your browser at `http://localhost:3000`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## Usage
 
-Simply open [Lovable](https://lovable.dev/projects/e4eed567-813b-466a-825f-c7df4817526c) and click on Share -> Publish.
+### Admin Features
 
-## I want to use a custom domain - is that possible?
+1. **Login**: Use the test credentials to log in.
+   - Email: `0biken@gmail.com`
+   - Password: `iamafool`
+2. **Manage Inventory**: Add, edit, or delete products. Use the barcode scanner for quick updates.
+3. **Manage Sales**: Record sales transactions and track inventory updates.
+4. **User Management**: Add new admins and remove existing users.
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+### Responsiveness
+
+- Ensure that the application is usable across devices, from desktops to mobile phones.
+
+---
+
+## Future Enhancements
+
+- Securely store user credentials using hashing mechanisms.
+- Integrate with a backend service for real-time data synchronization.
+- Expand barcode scanning functionality to support multiple formats.
+- Add analytics and reporting features for better business insights.
+
+---
+
+## Contribution
+
+Feel free to contribute to this project by submitting pull requests or reporting issues. Ensure that your changes are well-documented and tested.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
