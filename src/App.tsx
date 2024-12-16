@@ -23,42 +23,40 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Layout>
-                    <Routes>
-                      <Route path="/" element={<Dashboard />} />
-                      <Route
-                        path="/inventory"
-                        element={
-                          <ProtectedRoute requiredRole="manager">
-                            <Inventory />
-                          </ProtectedRoute>
-                        }
-                      />
-                      <Route
-                        path="/sales"
-                        element={
-                          <ProtectedRoute requiredRole="cashier">
-                            <Sales />
-                          </ProtectedRoute>
-                        }
-                      />
-                      <Route
-                        path="/users"
-                        element={
-                          <ProtectedRoute requiredRole="admin">
-                            <Users />
-                          </ProtectedRoute>
-                        }
-                      />
-                    </Routes>
-                  </Layout>
-                </ProtectedRoute>
-              }
-            />
+            <Route element={<Layout />}>
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/inventory"
+                element={
+                  <ProtectedRoute requiredRole="manager">
+                    <Inventory />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/sales"
+                element={
+                  <ProtectedRoute requiredRole="cashier">
+                    <Sales />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/users"
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                    <Users />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

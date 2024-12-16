@@ -11,14 +11,36 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+interface Product {
+  id: string;
+  name: string;
+  sku: string;
+  quantity: number;
+}
+
 export default function Inventory() {
   const [scannedBarcode, setScannedBarcode] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>([
+    { id: "1", name: "Product 1", sku: "SKU12345", quantity: 10 },
+    { id: "2", name: "Product 2", sku: "SKU67890", quantity: 5 },
+  ]);
 
   const handleBarcodeScan = (barcode: string) => {
     setScannedBarcode(barcode);
     // In a real application, you would use this barcode to fetch product details
     // from your backend or database
-    toast.info(`Scanned barcode: ${barcode}`);
+    toast.info(`Scanning product with barcode: ${barcode}`);
+    
+    // Mock adding a product when barcode is scanned
+    const newProduct = {
+      id: Date.now().toString(),
+      name: `Product from barcode ${barcode}`,
+      sku: barcode,
+      quantity: 1,
+    };
+    
+    setProducts(prev => [...prev, newProduct]);
+    toast.success("Product added to inventory!");
   };
 
   return (
@@ -45,26 +67,25 @@ export default function Inventory() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {/* Example data, replace with actual inventory data */}
-              <TableRow>
-                <TableCell className="font-medium">Product 1</TableCell>
-                <TableCell>SKU12345</TableCell>
-                <TableCell>10</TableCell>
-                <TableCell>
-                  <Button variant="outline">Edit</Button>
-                  <Button variant="destructive" className="ml-2">Delete</Button>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">Product 2</TableCell>
-                <TableCell>SKU67890</TableCell>
-                <TableCell>5</TableCell>
-                <TableCell>
-                  <Button variant="outline">Edit</Button>
-                  <Button variant="destructive" className="ml-2">Delete</Button>
-                </TableCell>
-              </TableRow>
-              {/* Add more products as needed */}
+              {products.map((product) => (
+                <TableRow key={product.id}>
+                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell>{product.sku}</TableCell>
+                  <TableCell>{product.quantity}</TableCell>
+                  <TableCell className="space-x-2">
+                    <Button variant="outline">Edit</Button>
+                    <Button 
+                      variant="destructive"
+                      onClick={() => {
+                        setProducts(prev => prev.filter(p => p.id !== product.id));
+                        toast.success("Product removed from inventory");
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </div>
