@@ -40,9 +40,13 @@ export default function Users() {
     setUsers([...users, newUser]);
   };
 
+  const handleDeleteUser = (userId: number) => {
+    setUsers(users.filter(user => user.id !== userId));
+  };
+
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h1 className="text-3xl font-bold">Users</h1>
         <AddUserDialog
           onUserAdded={handleAddUser}
@@ -60,7 +64,7 @@ export default function Users() {
         />
       </div>
 
-      <UserTable users={filteredUsers} />
+      <UserTable users={filteredUsers} onDeleteUser={handleDeleteUser} />
     </div>
   );
 }
