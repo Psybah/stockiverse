@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, LineChart } from "@/components/ui/charts";
 
 const salesData = [
-  { name: "Jan", total: 1200 },
-  { name: "Feb", total: 2100 },
-  { name: "Mar", total: 1800 },
-  { name: "Apr", total: 2400 },
-  { name: "May", total: 2800 },
-  { name: "Jun", total: 3200 },
+  { name: "Jan", total: 480000 },
+  { name: "Feb", total: 840000 },
+  { name: "Mar", total: 720000 },
+  { name: "Apr", total: 960000 },
+  { name: "May", total: 1120000 },
+  { name: "Jun", total: 1280000 },
 ];
 
 const inventoryData = [
@@ -28,7 +28,7 @@ export default function Dashboard() {
             <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$45,231.89</div>
+            <div className="text-2xl font-bold">₦18,092,756</div>
             <p className="text-xs text-muted-foreground">+20.1% from last month</p>
           </CardContent>
         </Card>
@@ -72,7 +72,7 @@ export default function Dashboard() {
               index="name"
               categories={["total"]}
               colors={["blue"]}
-              valueFormatter={(value: number) => `$${value}`}
+              valueFormatter={(value: number) => `₦${value.toLocaleString()}`}
               className="h-[300px]"
             />
           </CardContent>

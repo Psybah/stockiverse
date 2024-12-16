@@ -15,25 +15,25 @@ const initialSales = [
   {
     id: 1,
     date: "2024-02-20",
-    customer: "John Doe",
+    customer: "Oluwaseun Adebayo",
     items: 3,
-    total: 1299.99,
+    total: 519999.99,
     status: "Completed",
   },
   {
     id: 2,
     date: "2024-02-19",
-    customer: "Jane Smith",
+    customer: "Chidinma Okonkwo",
     items: 2,
-    total: 799.99,
+    total: 319999.99,
     status: "Completed",
   },
   {
     id: 3,
     date: "2024-02-18",
-    customer: "Bob Johnson",
+    customer: "Babajide Ogunleye",
     items: 1,
-    total: 99.99,
+    total: 39999.99,
     status: "Completed",
   },
 ];
@@ -81,7 +81,7 @@ export default function Sales() {
                 <TableCell>{sale.date}</TableCell>
                 <TableCell className="font-medium">{sale.customer}</TableCell>
                 <TableCell>{sale.items}</TableCell>
-                <TableCell>${sale.total}</TableCell>
+                <TableCell>₦{sale.total.toLocaleString()}</TableCell>
                 <TableCell>{sale.status}</TableCell>
               </TableRow>
             ))}
