@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { BarcodeScanner } from "@/components/inventory/BarcodeScanner";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export default function Inventory() {
   const [scannedBarcode, setScannedBarcode] = useState<string | null>(null);
