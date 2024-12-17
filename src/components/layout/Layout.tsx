@@ -31,13 +31,13 @@ export function Layout() {
 
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full">
+      <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
-        <main className="flex-1">
+        <main className="flex-1 w-full">
           <div className="p-4 md:p-8">
             <div className="flex justify-between items-center mb-4 gap-2">
               <div className="flex items-center gap-2 md:gap-4">
-                <SidebarTrigger>
+                <SidebarTrigger className="md:hidden">
                   <Menu className="h-5 w-5" />
                 </SidebarTrigger>
                 {user && (
