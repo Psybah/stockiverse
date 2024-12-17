@@ -41,7 +41,7 @@ const menuItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar className="hidden md:block">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Store Management</SidebarGroupLabel>
@@ -50,7 +50,7 @@ export function AppSidebar() {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <Link to={item.path}>
+                    <Link to={item.path} className="flex items-center gap-2">
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </Link>

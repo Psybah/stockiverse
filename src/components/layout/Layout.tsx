@@ -4,7 +4,7 @@ import { AppSidebar } from "./AppSidebar";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { LogOut } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function Layout() {
@@ -33,26 +33,31 @@ export function Layout() {
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
         <AppSidebar />
-        <main className="flex-1 p-8">
-          <div className="flex justify-between items-center mb-4">
-            <div className="flex items-center gap-4">
-              <SidebarTrigger />
-              {user && (
-                <Badge className={`${getRoleColor(user.role)} text-white`}>
-                  {user.role}
-                </Badge>
-              )}
+        <main className="flex-1">
+          <div className="p-4 md:p-8">
+            <div className="flex justify-between items-center mb-4 gap-2">
+              <div className="flex items-center gap-2 md:gap-4">
+                <SidebarTrigger>
+                  <Menu className="h-5 w-5" />
+                </SidebarTrigger>
+                {user && (
+                  <Badge className={`${getRoleColor(user.role)} text-white text-xs md:text-sm whitespace-nowrap`}>
+                    {user.role}
+                  </Badge>
+                )}
+              </div>
+              <Button
+                variant="ghost"
+                onClick={handleLogout}
+                size="sm"
+                className="gap-1 md:gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                <span className="hidden md:inline">Logout</span>
+              </Button>
             </div>
-            <Button
-              variant="ghost"
-              onClick={handleLogout}
-              className="gap-2"
-            >
-              <LogOut className="h-4 w-4" />
-              Logout
-            </Button>
+            <Outlet />
           </div>
-          <Outlet />
         </main>
       </div>
     </SidebarProvider>
